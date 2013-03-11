@@ -1,0 +1,3 @@
+use s4smeta
+
+db.metainfo.ensureIndex({"FILE_ID": 1})

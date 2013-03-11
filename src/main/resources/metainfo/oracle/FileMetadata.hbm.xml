@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="org.chimi.s4s.metainfo.rdb.RdbFileMetadata"
+		table="FILE_METADATA">
+		<id name="physicalId" column="FILE_METADATA_ID">
+			<generator class="sequence">
+				<param name="sequence">FILE_METADATA_SEQ</param>
+			</generator>
+		</id>
+		<property name="serviceId" column="SERVICE_ID" />
+		<property name="fileName" column="FILE_NAME" />
+		<property name="length" column="FILE_LENGTH" />
+		<property name="mimetype" column="MIMETYPE" />
+		<property name="uploadTime" column="UPLOAD_TIME" />
+		<property name="fileId" column="FILE_ID" />
+	</class>
+
+</hibernate-mapping>
