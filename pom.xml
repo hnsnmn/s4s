@@ -234,6 +234,9 @@ encoding/<project>=UTF-8
 				</configuration>
 			</plugin>
 
+			<!--
+			build command: mvn assembly:assembly 
+			 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
