@@ -121,6 +121,8 @@ public class FileDownloadController {
 		}
 		if (checkModifiedRequest(request)) {
 			response.setStatus(304);
+			response.setContentType(file.getMimeType());
+			cacheStrategy.setCacheOption(file, response);
 			return;
 		}
 		sendFile(requestImageInline, file, request, response);

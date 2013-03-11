@@ -24,10 +24,14 @@ function uploaded() {
 		alert("업로드에 실패했습니다:" + result.code);
 	}
 }
+
+function chooseFile() {
+	fraUpload.trigger();
+}
 </script>
 </head>
 <body>
-<div>파일을 선택해주세요.</div>
+<div>파일을 선택해주세요. <a href="javascript: chooseFile();">파일선택</a></div>
 
 <iframe name="fraUpload" id="fraUpload" 
 		width="250" height="40" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"

@@ -20,6 +20,11 @@
 	var p = false;
 	</c:if>
 	
+	function trigger() {
+		var e = jQuery.Event("click");
+		jQuery("#file").trigger(e);
+	}
+	
 	function send() {
 		var form = document.uploadForm;
 		form.target = '_self';
