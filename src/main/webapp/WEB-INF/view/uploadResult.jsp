@@ -26,6 +26,7 @@
 <input type="hidden" name="fileName" id="fileName" value="<c:out value='${uploadResult.fileName}'/>" />
 <input type="hidden" name="fileId" id="fileId" value="${uploadResult.fileId}" />
 <input type="hidden" name="metadataId" id="metadataId" value="${uploadResult.metadataId}" />
+<input type="hidden" name="image" id="image" value="<c:out value='${uploadResult.image}'/>" />
 <input type="hidden" name="mimeType" id="mimeType" value="${uploadResult.mimeType}" />
 <input type="hidden" name="length" id="length" value="${uploadResult.length}" />
 <input type="hidden" name="fileUrl" id="fileUrl" value="${uploadResult.fileUrl}" />
