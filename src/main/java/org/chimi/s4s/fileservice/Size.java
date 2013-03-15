@@ -36,4 +36,42 @@ public class Size {
 		return height;
 	}
 
+	public Size applyRatio(int originWidth, int originHeight) {
+		if (width > 0 && height > 0) {
+			return this;
+		}
+		double originRatio = (double) originWidth / (double) originHeight;
+		if (width <= 0) {
+			return new Size(getWidthByRatio(originRatio), height);
+		}
+		if (height <= 0) {
+			return new Size(width, getHeightByRatio(originRatio));
+		}
+		return null;
+	}
+
+	private int getWidthByRatio(double originRatio) {
+		return Double.valueOf(originRatio * height).intValue();
+	}
+
+	private int getHeightByRatio(double originRatio) {
+		return Double.valueOf(width / originRatio).intValue();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Size other = (Size) obj;
+		if (height != other.height)
+			return false;
+		if (width != other.width)
+			return false;
+		return true;
+	}
+
 }

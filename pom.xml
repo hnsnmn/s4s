@@ -4,7 +4,7 @@
 	<groupId>org.chimi</groupId>
 	<artifactId>s4s</artifactId>
 	<packaging>war</packaging>
-	<version>0.6</version>
+	<version>0.7-SNAPSHOT</version>
 	<name>Storage For Simple</name>
 	<url>https://code.google.com/p/storage-for-simple/</url>
 

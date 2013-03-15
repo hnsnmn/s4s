@@ -58,8 +58,8 @@ public class JavaImageProcessor implements ImageProcessor {
 			os = new FileOutputStream(outFile);
 			ImageIO.write(rescaledImage, "jpeg", os);
 			if (logger.isDebugEnabled()) {
-				logger.debug("Thumbnail Image {} created", destFile
-						.getAbsolutePath());
+				logger.debug("Thumbnail Image {} created",
+						destFile.getAbsolutePath());
 			}
 			return outFile;
 		} catch (IOException e) {
@@ -72,7 +72,10 @@ public class JavaImageProcessor implements ImageProcessor {
 	}
 
 	private BufferedImage rescaleImage(Size newSize, BufferedImage image) {
-		ResampleOp op = new ResampleOp(newSize.getWidth(), newSize.getHeight());
+		Size realNewSize = newSize.applyRatio(image.getWidth(),
+				image.getHeight());
+		ResampleOp op = new ResampleOp(realNewSize.getWidth(),
+				realNewSize.getHeight());
 		BufferedImage rescaledImage = op.filter(image, null);
 		return rescaledImage;
 	}

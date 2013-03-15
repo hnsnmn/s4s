@@ -66,7 +66,11 @@ public class IM4JavaImageProcessor implements ImageProcessor, InitializingBean {
 			IMOperation op = new IMOperation();
 			op.format("jpeg");
 			op.addImage("-"); // read from stdin
-			op.resize(newSize.getWidth(), newSize.getHeight(), "!");
+			if (newSize.getHeight() == 0 || newSize.getWidth() == 0) {
+				op.resize(newSize.getWidth(), newSize.getHeight());
+			} else {
+				op.resize(newSize.getWidth(), newSize.getHeight(), "!");
+			}
 			op.addImage(destFile.getAbsolutePath());
 			Pipe pipeIn = new Pipe(in, null);
 
@@ -76,8 +80,8 @@ public class IM4JavaImageProcessor implements ImageProcessor, InitializingBean {
 			try {
 				convert.run(op);
 				if (logger.isDebugEnabled()) {
-					logger.debug("Thumbnail Image {} created", destFile
-							.getAbsolutePath());
+					logger.debug("Thumbnail Image {} created",
+							destFile.getAbsolutePath());
 				}
 				return destFile;
 			} catch (InterruptedException e) {
